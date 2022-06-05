@@ -1,0 +1,118 @@
+<div class="card-body">
+    <mat-card-title class="titulo">Creación de Solicitud</mat-card-title>
+
+    <mat-card class="margenArriba">
+
+        <button mat-raised-button class="botones margenBotones" type="button" (click)="regresarAMantenimientoSolicitudes()">Regresar</button>
+        <br><br>
+        <mat-horizontal-stepper [linear]="isLinear" #stepper>
+            <!--Informacion solicitud-->
+            <mat-step [stepControl]="crearSolicitudFormGroup">
+                <form [formGroup]="crearSolicitudFormGroup">
+                    <ng-template matStepLabel>Creación de Solicitud</ng-template>
+                    <div class="container">
+                        <div class="col-12">
+                            <div class="row">
+                                <mat-form-field appearance="fill" class="col-lg-4 col-md-4 col-sm-12">
+                                    <mat-label>Tipo Solicitante</mat-label>
+                                    <mat-select formControlName = "tipoSolicitanteFormControl" (ngModelChange)="enviarTipoDeSoporte()">
+                                      <mat-option *ngFor="let opcion of tipoSolicitante" [value]="opcion.codigo_dato_catalogo" >
+                                        {{opcion.nombre}}
+                                      </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="col-lg-4 col-md-4 col-sm-12">
+                                    <mat-label>Tipo Solicitud</mat-label>
+                                    <mat-select formControlName = "tipoSolicitudFormControl">
+                                      <mat-option *ngFor="let opcion of tipoSolicitud" [value]="opcion.codigo_dato_catalogo">
+                                        {{opcion.nombre}}
+                                      </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                    <mat-label>No. Expediente</mat-label>
+                                    <input matInput #noExpediente placeholder="9999-88-77-66-5555555" maxlength="24" formControlName= "noExpedienteFormControl"
+                                    (blur)="getExpediente()">
+                                    <mat-hint align="end">{{noExpediente.value.length}} / 24</mat-hint>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="row">
+                                <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                    <mat-label>Descripción</mat-label>
+                                    <textarea matInput #descripcion
+                                        formControlName="descripcionFormControl" class="tamanioTextArea"
+                                        maxlength="2000"></textarea>
+                                    <mat-hint align="end">{{descripcion.value.length}} / 2000</mat-hint>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                    <mat-label>NIT</mat-label>
+                                    <input matInput #nit  formControlName= "nitFormControl" readonly>
+                                </mat-form-field>
+                                <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                    <mat-label>Nombre</mat-label>
+                                    <input matInput #nit  formControlName= "nombreFormControl" readonly>
+                                </mat-form-field>
+                            </div>  
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <!--button mat-raised-button type="button" color="warn" type="button">Cancelar</button-->
+                            <button mat-raised-button matStepperNext class="botones margenBotones" type="button"
+                            [disabled]="crearSolicitudFormGroup.invalid">Siguiente</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>
+            <!--Soporte y Contacto-->
+            <mat-step [stepControl]="soporteYContactoFormGroup">
+                <form [formGroup]="soporteYContactoFormGroup">
+                    <ng-template matStepLabel>Soporte y contacto</ng-template>
+                    <div class="container justify-content-center">
+                        <div class="row justify-content-center">
+                            <mat-form-field appearance="fill" class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Tipo de Soporte</mat-label>
+                                <mat-select formControlName = "tipoSoporteFormControl">
+                                  <mat-option *ngFor="let opcion of tipoSoporte" [value]="opcion.codigo_dato_catalogo">
+                                    {{opcion.nombre}}
+                                  </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>No. Soporte</mat-label>
+                                <input matInput #nosoporte  formControlName= "numeroSoporteFormControl" maxlength="50">
+                                <mat-hint align="end">{{nosoporte.value.length}} / 50</mat-hint>
+                            </mat-form-field>
+                        </div> 
+                        <div class="row justify-content-center">
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Telefonos</mat-label>
+                                <textarea matInput #telefonos
+                                    formControlName="telefonosFormControl" class="tamanioTextArea"
+                                    maxlength="100"></textarea>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Email</mat-label>
+                                <input matInput #email  formControlName= "emailFormControl" maxlength="50" autocomplete="off">
+                                <mat-hint align="end">{{email.value.length}} / 50</mat-hint>
+                            </mat-form-field>
+                        </div>  
+                    </div>
+                    <div class="modal-footer">
+                        <!--button mat-raised-button type="button" color="warn" type="button">
+                            Cancelar
+                        </button-->
+                        <button mat-raised-button type="button" class="botones mr-2" matStepperPrevious>
+                            Regresar
+                        </button>
+                        <button mat-raised-button type="button" class="botones" [disabled]="soporteYContactoFormGroup.invalid" (click)="guardarSolicitud()"
+                            matStepperNext>
+                            Guardar
+                        </button>
+                    </div>
+                </form>
+            </mat-step>
+        </mat-horizontal-stepper>    
+    </mat-card>
+</div>

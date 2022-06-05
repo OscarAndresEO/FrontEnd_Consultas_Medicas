@@ -1,0 +1,50 @@
+<div class="card-body">
+    <mat-card-title class="titulo">Cambio estado solicitud</mat-card-title>
+    <mat-card class="margenArriba">
+        <div class="container">
+            <div class="col-12">
+                <button mat-raised-button class="botones margenBotones" type="button" (click)="regresarAMantenimientoSolicitudes()">Regresar</button>
+                <button mat-raised-button class="botones margenBotones" type="button" [disabled]="informacionFormGroup.invalid" (click)="cambiarEstado()">Confirmar cambio de estado</button>
+                
+            </div>
+            <br><br>
+            <div class="col-12">
+                <form [formGroup]="informacionFormGroup">
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Codigo Solicitud</mat-label>
+                            <input matInput placeholder=""  formControlName="codigoSolicitudFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Descripcion</mat-label>
+                            <input matInput placeholder="" formControlName="descripcionFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Estado actual</mat-label>
+                            <input matInput placeholder=""  formControlName="estadoActualFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Nuevo estado</mat-label>
+                            <input matInput placeholder=""  formControlName="nuevoEstadoFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Observaciones por cambio de fase</mat-label>
+                            <textarea matInput #descripcion
+                            formControlName="observaciones" class="tamanioTextArea"
+                                maxlength="500"></textarea>
+                            <mat-hint align="end">{{descripcion.value.length}} / 500</mat-hint>
+                        </mat-form-field> 
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Documento de soporte</mat-label>
+                            <input type="file" name="archivoSubido" formControlName="documento" (change)="fileSelected($event)">
+                        </div>  
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-card>
+</div>

@@ -1,0 +1,41 @@
+<div class="card-body">
+    <mat-card-title class="titulo">Informacion cliente</mat-card-title>
+    <mat-card class="margenArriba">
+        <div class="container">
+            <div class="col-12">
+                <button mat-raised-button class="botones margenBotones" type="button" (click)="regresarAMantenimientoSolicitudes()">Regresar</button>
+            </div>
+            <br><br>
+            <div class="col-12">
+                <form [formGroup]="informacionFormGroup">
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>NIT Cliente</mat-label>
+                            <input matInput placeholder=""  formControlName="nitFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Nombre Cliente</mat-label>
+                            <input matInput placeholder="" formControlName="nombreFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Direccion Cliente</mat-label>
+                            <input matInput placeholder=""  formControlName="direccionFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Telefono Cliente</mat-label>
+                            <input matInput placeholder="" formControlName="telefonosFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Email Cliente</mat-label>
+                            <input matInput placeholder=""  formControlName="emailsFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-card>
+</div>

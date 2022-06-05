@@ -1,0 +1,202 @@
+<div class="card-body">
+    <mat-card-title class="titulo">Asociar </mat-card-title>
+    <mat-card class="margenArriba">
+        <div class="col-12">
+            <button mat-raised-button class="botones margenBotones" type="button" (click)="regresarAMantenimientoSolicitudes()">Regresar</button>
+        </div>
+        <br><br>
+        <mat-horizontal-stepper [linear]="isLinear" #stepper>
+             <!--Informacion creacion solicitud -->
+             <mat-step [stepControl]="AsociarFormGroup">
+                <form [formGroup]="AsociarFormGroup">
+                    <ng-template matStepLabel>Codigo de Muestra (Ingrese Numero)</ng-template>
+                    <div class="container">
+                        <!--Inicia Row -->
+                        <div class="row"> 
+                            <mat-form-field class="col-lg-5 col-md-4 col-sm-12">
+                                <mat-label>Ingrese el No. De muestra</mat-label>
+                             <input matInput #noExpediente placeholder="AAAAABB-99-999999" maxlength="21" formControlName="codigoMuestraFormControl" >
+                                <mat-hint align="end">{{noExpediente.value.length}} / 21</mat-hint>
+                            </mat-form-field>
+ 
+                        </div>
+                        <div class="modal-footer">
+                           
+                            <div>
+                                <button mat-raised-button class="botones margenBotones" type="button" 
+                                [disabled]="AsociarFormGroup.invalid" (click)="getMuestra()">
+                                       Buscar
+                                </button>
+                            </div>
+                            
+                            <div>
+                                                   
+                                <button mat-raised-button matStepperNext class="botones margenBotones" type="button"
+                                [disabled]="habilitarBtnSiguiente === false">Siguiente</button>
+                             </div>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>
+            <!--INFORMACION DE LA MUESTRA -->
+            <mat-step [stepControl]="InformacionMuestra">
+                <form [formGroup]="InformacionMuestra">
+                    <ng-template matStepLabel>Informacion de la muestra</ng-template>
+                    <div class="container justify-content-center">
+                        <!--Inicia Row -->
+                            <div class="row justify-content-center"> 
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Codigo Muestra</mat-label>
+                                <input matInput #nit  formControlName= "codigoMuestra1FormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Tipo Muestra</mat-label>
+                                <input matInput #nit  formControlName= "codigoTipoMuestraFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Codigo solicitud</mat-label>
+                                <input matInput #nit  formControlName= "codigoSolicitudFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Numero Expediente</mat-label>
+                                <input matInput #nit  formControlName= "noExpedienteFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Unidad Medica</mat-label>
+                                <input matInput #nit  formControlName= "unidadMedicaFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Presentacion</mat-label>
+                                <input matInput #nit  formControlName= "presentacionFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>NIT</mat-label>
+                                <input matInput #nit  formControlName= "nitFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Usuario Asignacion</mat-label>
+                                <input matInput #nit  formControlName= "usuarioAsignacionFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Usuario Creacion</mat-label>
+                                <input matInput #nit  formControlName= "usuarioCreacionFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Estado solicitud</mat-label>
+                                <input matInput #nit  formControlName= "estadoFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Cantidad Unidades</mat-label>
+                                <input matInput #nit  formControlName= "cantidadUnidadFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Fecha Creacion Muestra</mat-label>
+                                <input matInput #nit  formControlName= "fechaCreacionFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Fecha Vencimiento Muestra</mat-label>
+                                <input matInput #nit  formControlName= "fechaVencimientoFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Usuario Creacion Muestra</mat-label>
+                                <input matInput #nit  formControlName= "userCreacionFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Cantidad items</mat-label>
+                                <input matInput #nit  formControlName= "itemsFormControl" readonly>
+                            </mat-form-field>
+                            <mat-form-field class="col-lg-4 col-md-4 col-sm-12">
+                                <mat-label>Archivo Adjunto</mat-label>
+                                <input matInput #nit  formControlName= "adjuntoFormControl" readonly>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!--button mat-raised-button type="button" color="warn" type="button">
+                            Cancelar
+                        </button-->
+                        <button mat-raised-button type="button" class="botones mr-2" matStepperPrevious>
+                            Regresar
+                        </button>
+                        <button mat-raised-button matStepperNext class="botones margenBotones" type="button"
+                                [disabled]="habilitarBtnSiguiente === false">Siguiente</button>
+                    </div>
+                </form>
+            </mat-step>
+            <!--Asociar items -->
+            <mat-step [stepControl]="itemsFormGroup">
+                <form [formGroup]="itemsFormGroup">
+                    <ng-template matStepLabel>Asociar items</ng-template>
+                    <div class="m-0 row justify-content-center">
+                        <div *ngIf="tipoMuestra === 'Cultivo'">
+                            <div class="col- text-center">
+                                <mat-form-field >
+                                    <input matInput placeholder=""   autocomplete="off" value="Microbiotico" readonly>
+                                </mat-form-field>
+                                <mat-slide-toggle formControlName="microbioticoFormControl" (change)="validarSlideToggles()" >Seleccionar item</mat-slide-toggle>
+                            </div>
+                        </div>
+                        <div *ngIf="tipoMuestra === 'Plaquetas'">
+                            <div class="col-auto text-center">
+                                <mat-form-field >
+                                    <input matInput placeholder=""   autocomplete="off" value="Triglicéridos" readonly>
+                                </mat-form-field>
+                                <mat-slide-toggle formControlName="trigliceridosFormControl"  (change)="validarSlideToggles()">Seleccionar item</mat-slide-toggle>
+                            </div>
+                            <div class="col-auto text-center">
+                                <mat-form-field >
+                                    <input matInput placeholder=""   autocomplete="off" value="Diabetes" readonly>
+                                </mat-form-field>
+                                <mat-slide-toggle formControlName="diabetesFormControl"  (change)="validarSlideToggles()">Seleccionar item</mat-slide-toggle>
+                            </div>
+                            <div class="col-auto text-center">
+                                <mat-form-field >
+                                    <input matInput placeholder=""   autocomplete="off" value="Embarazo" readonly>
+                                </mat-form-field>
+                                <mat-slide-toggle formControlName="embarazoFormControl"  (change)="validarSlideToggles()">Seleccionar item</mat-slide-toggle>
+                            </div>
+                        </div>
+                        <div *ngIf="tipoMuestra === 'Eses'">
+                            <div class="col-auto text-center">
+                                <mat-form-field >
+                                    <input matInput placeholder=""   autocomplete="off" value="Test de drogas" readonly>
+                                </mat-form-field>
+                                <mat-slide-toggle formControlName="testDrogasFormControl"  (change)="validarSlideToggles()">Seleccionar item</mat-slide-toggle>
+                            </div>
+                            <div class="col-auto text-center">
+                                <mat-form-field >
+                                    <input matInput placeholder=""   autocomplete="off" value="Test de enfermedades renales" readonly>
+                                </mat-form-field>
+                                <mat-slide-toggle formControlName="testEnfermedadesFormControl"  (change)="validarSlideToggles()">Seleccionar item</mat-slide-toggle>
+                            </div>
+                        </div>
+                        <div *ngIf="tipoMuestra === 'Orina'">
+                            <div class="col-auto text-center">
+                                <mat-form-field >
+                                    <input matInput placeholder="" value="Bacteriana" readonly  autocomplete="off">
+                                </mat-form-field>
+                                <mat-slide-toggle formControlName="bacterianaFormControl"  (change)="validarSlideToggles()">Seleccionar item</mat-slide-toggle>
+                            </div>
+                        </div>
+                        <div class=" text-center">
+                            <mat-form-field style="width: 40%;" >
+                                <mat-label>Descripcion</mat-label>
+                                <textarea matInput placeholder=""  formControlName="descripcion" autocomplete="off" ></textarea> <!--(ngModelChange)="validarSlideToggles()"-->
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button mat-raised-button type="button" class="botones mr-2" matStepperPrevious>
+                            Regresar
+                        </button>
+                        <button mat-raised-button type="button" class="botones" (click)="asociar()"
+                            matStepperNext [disabled]="habilitarAsociar === false && itemsFormGroup.invalid">
+                            Asociar
+                        </button>
+                    </div>
+                </form>
+
+            </mat-step>
+        </mat-horizontal-stepper>
+    </mat-card>
+</div>

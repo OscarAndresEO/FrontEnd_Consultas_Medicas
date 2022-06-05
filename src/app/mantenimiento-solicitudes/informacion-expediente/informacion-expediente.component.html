@@ -1,0 +1,31 @@
+<div class="card-body">
+    <mat-card-title class="titulo">Informacion Expediente</mat-card-title>
+    <mat-card class="margenArriba">
+        <div class="container">
+            <div class="col-12">
+                <button mat-raised-button class="botones margenBotones" type="button" (click)="regresarAMantenimientoSolicitudes()">Regresar</button>
+            </div>
+            <br><br>
+            <div class="col-12">
+                <form [formGroup]="informacionFormGroup">
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Numero Expediente</mat-label>
+                            <input matInput placeholder=""  formControlName="noExpedienteFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Origen</mat-label>
+                            <input matInput placeholder="" formControlName="origenFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-12 col-md-12 col-sm-12">
+                            <mat-label>Observaciones</mat-label>
+                            <textarea matInput placeholder=""  formControlName="observacionesFormControl" readonly></textarea>
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-card>
+</div>

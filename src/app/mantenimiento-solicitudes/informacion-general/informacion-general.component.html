@@ -1,0 +1,105 @@
+<div class="card-body">
+    <mat-card-title class="titulo">Informacion General</mat-card-title>
+    <mat-card class="margenArriba">
+        <div class="container">
+            <div class="col-12">
+                <button mat-raised-button class="botones margenBotones" type="button" (click)="regresarAMantenimientoSolicitudes()">Regresar</button>
+            </div>
+            <br><br>
+            <div class="col-12">
+                <form [formGroup]="informacionFormGroup">
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Codigo Solicitud</mat-label>
+                            <input matInput placeholder=""  formControlName="codigoSolicitudFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Numero Expediente</mat-label>
+                            <input matInput placeholder="" formControlName="noExpedienteFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>NIT</mat-label>
+                            <input matInput placeholder=""  formControlName="nitFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Numero Soporte</mat-label>
+                            <input matInput placeholder="" formControlName="noSoporteFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Tipo Soporte</mat-label>
+                            <input matInput placeholder=""  formControlName="tipoSoporteFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Tipo Solicitante</mat-label>
+                            <input matInput placeholder="" formControlName="tipoSolicitanteFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Tipo Solicitud</mat-label>
+                            <input matInput placeholder=""  formControlName="tipoSolicitudFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Usuario Asignacion</mat-label>
+                            <input matInput placeholder="" formControlName="usuarioAsignacionFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Estado Solicitud</mat-label>
+                            <input matInput placeholder=""  formControlName="estadoSolicitudFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Usuario Creacion</mat-label>
+                            <input matInput placeholder="" formControlName="usuarioCreacionFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Fecha Creacion</mat-label>
+                            <input matInput placeholder=""  formControlName="fechaCreacionFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Cantidad Muestras</mat-label>
+                            <input matInput placeholder="" formControlName="cantidadMuestrasFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Cantidad Items</mat-label>
+                            <input matInput placeholder=""  formControlName="cantidadItemsFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Cantidad Documentos</mat-label>
+                            <input matInput placeholder="" formControlName="cantidadDocumentosFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Descripcion</mat-label>
+                            <input matInput placeholder=""  formControlName="descripcionFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Solicitante</mat-label>
+                            <input matInput placeholder="" formControlName="solicitanteFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Telefonos</mat-label>
+                            <input matInput placeholder=""  formControlName="telefonosFormControl" readonly>
+                        </mat-form-field>
+                        <mat-form-field class="col-lg-6 col-md-6 col-sm-12">
+                            <mat-label>Emails</mat-label>
+                            <input matInput placeholder="" formControlName="emailsFormControl" readonly>
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-card>
+</div>
